@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>אחזקה אורבנית - פרק 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --accent:#2563eb; --accent2:#3b82f6; --success:#16a34a; --warning:#ca8a04; --danger:#dc2626; --muted:#64748b; --border:#e2e8f0; --card:#f8fafc; }
+    html,body { background:#ffffff; color:#1e293b; font-family:"Noto Sans Hebrew","Arial",system-ui; margin:0; }
+    main { max-width:1200px; margin:32px auto; padding:0 20px; }
+    h1 { font-size:2.4rem; margin:0 0 14px; color:var(--accent); }
+    h2 { font-size:1.6rem; margin:32px 0 14px; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:8px; }
+    h3 { font-size:1.3rem; margin:24px 0 10px; color:#334155; }
+    p,li { line-height:1.9; color:#475569; }
+    section { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; margin:20px 0; box-shadow:0 4px 12px rgba(0,0,0,.05); }
+    .highlight-box { background:#f1f5f9; border-right:4px solid var(--accent); padding:16px 20px; margin:16px 0; border-radius:8px; }
+    .back { color:var(--accent); text-decoration:none; display:inline-block; margin-bottom:20px; }
+    .back:hover { text-decoration:underline; }
+    .table { width:100%; border-collapse:collapse; margin:16px 0; }
+    .table th,.table td { border:1px solid var(--border); padding:12px; text-align:right; }
+    .table th { background:#f1f5f9; font-weight:600; }
+    .badge { display:inline-block; padding:6px 12px; border-radius:999px; font-size:.88rem; margin:0 4px; font-weight:500; }
+    .badge-success { background:#dcfce7; color:#166534; }
+    .badge-warning { background:#fef9c3; color:#854d0e; }
+    .badge-danger { background:#fee2e2; color:#991b1b; }
+    .metric-card { background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:16px; margin:10px 0; }
+    .metric-label { color:var(--muted); font-size:.9rem; margin-bottom:6px; }
+    .grid { display:grid; gap:16px; margin:16px 0; }
+    .grid-2 { grid-template-columns:repeat(2, 1fr); }
+    ul.checklist li { list-style-type:none; padding-right:0; }
+    ul.checklist li:before { content:"✓"; color:var(--success); font-weight:bold; margin-left:10px; }
+    footer { color:var(--muted); text-align:center; margin:40px 0; padding-top:20px; border-top:1px solid var(--border); }
+  </style>
+</head>
+<body>
+<main>
+  <a href="index.html" class="back">← חזרה לעמוד הראשי</a>
+  <header style="margin-bottom:40px;">
+    <h1>מסמך אפיון טכני - אחזקה אורבנית</h1>
+    <p class="muted"><b>פרק 1: מבוא, חזון וארכיטקטורה</b> | גרסה 2.0 | דצמבר 2025</p>
+  </header>
+
+  <section>
+    <h2>1.1 תיאור החברה והשירותים</h2>
+    <div class="highlight-box">
+      <p><b>אחזקה אורבנית</b> היא חברה מובילה בהקמה, תפעול ותחזוקה של מתקני חניה רובוטיים ומכפילי חניה במבנים ציבוריים ופרטיים ברחבי ישראל.</p>
+    </div>
+    <h3>שירותי הליבה</h3>
+    <div class="grid grid-2">
+      <div class="metric-card"><div class="metric-label">תחזוקה שוטפת</div><p>תחזוקה מונעת ותגובתית 24/7</p></div>
+      <div class="metric-card"><div class="metric-label">התקנות חדשות</div><p>הקמת מתקני חניה רובוטיים</p></div>
+      <div class="metric-card"><div class="metric-label">ניהול תפעולי</div><p>ניטור מתמיד, דיווחים וניתוח</p></div>
+      <div class="metric-card"><div class="metric-label">חיזוי תקלות</div><p>מערכות AI לזיהוי מוקדם</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>1.2 חזון ומטרות</h2>
+    <div class="highlight-box">
+      <p><b>החזון:</b> להפוך את אחזקה אורבנית למובילה בתחום שירותי החניה החכמים בישראל</p>
+    </div>
+    <h3>מדדי הצלחה</h3>
+    <table class="table">
+      <tr><th>מדד</th><th>נוכחי</th><th>יעד</th></tr>
+      <tr><td>זמן תגובה</td><td>4 שעות</td><td>1.5 שעות</td></tr>
+      <tr><td>שביעות רצון</td><td>72%</td><td>90%</td></tr>
+      <tr><td>עמידה ב-SLA</td><td>78%</td><td>95%</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>1.3 תהליכים מרכזיים</h2>
+    <ul class="checklist">
+      <li>פתיחת קריאת שירות דרך WhatsApp</li>
+      <li>הקצאת טכנאי אוטומטית</li>
+      <li>ביצוע טיפול בשטח + תיעוד</li>
+      <li>סגירת קריאה ודיווח</li>
+      <li>תחזוקה מונעת</li>
+      <li>חיזוי תקלות (Predictive)</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>אחזקה אורבנית - מסמך אפיון טכני | פרק 1 | גרסה 2.0</p>
+  </footer>
+</main>
+</body>
+</html>
