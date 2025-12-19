@@ -13,6 +13,18 @@
             padding: 0;
             line-height: 1.8;
         }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
         .container {
             display: flex;
             max-width: 1200px;
@@ -37,10 +49,6 @@
         }
         .sidebar li {
             margin: 8px 0;
-        }
-        .sidebar li ul {
-            margin-right: 15px;
-            margin-top: 5px;
         }
         .sidebar a {
             color: black;
@@ -77,9 +85,12 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <div></div>
+        <div class="header-title">PDR חברת אחזקה אורבנית</div>
+    </div>
     <div class="container">
         <div class="sidebar" id="sidebar">
-            <!-- הניווט יטען כאן אוטומטית -->
         </div>
         <div class="content">
             <h1>PDR-001: מבוא</h1>
