@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מבוא</title>
+    <title>PDR - מבוא</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,22 +93,22 @@
         <div class="sidebar" id="sidebar">
         </div>
         <div class="content">
-            <h1>PDR-001: מבוא</h1>
+            <h1 id="page-title">מבוא</h1>
             
-            <h2>1. אודות החברה</h2>
+            <h2 class="section">אודות החברה</h2>
             <p>
                 חברת אחזקה אורבנית היא חברה המתמחה במתן שירותים להתקנה ואחזקה של מתקני חניה ומערכות ניהול חשמל למטענים.
             </p>
             
-            <h2>2. תחומי הפעילות</h2>
+            <h2 class="section">תחומי הפעילות</h2>
             
-            <h3>2.1 מערכות חניה</h3>
+            <h3 class="subsection">מערכות חניה</h3>
             <ul>
                 <li>התקנת מערכות חניה רובוטיות</li>
                 <li>אחזקת מכפילי חניה</li>
             </ul>
             
-            <h3>2.2 מערכות חשמל</h3>
+            <h3 class="subsection">מערכות חשמל</h3>
             <ul>
                 <li>מערכות ניהול חשמל לעמדות טעינה</li>
                 <li>תחזוקה שוטפת ומענה לתקלות</li>
@@ -117,10 +117,43 @@
     </div>
     
     <script>
+        // טוען את הניווט
         fetch('nav.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('sidebar').innerHTML = html;
+            });
+        
+        // טוען את המיספור
+        fetch('chapters.json')
+            .then(response => response.json())
+            .then(chapters => {
+                const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+                const chapterInfo = chapters[currentFile];
+                
+                if (chapterInfo) {
+                    const chapterNum = chapterInfo.chapter;
+                    
+                    // מיספור לכותרות h2
+                    let sectionCount = 1;
+                    document.querySelectorAll('h2.section').forEach(h2 => {
+                        h2.textContent = `${chapterNum}.${sectionCount} ${h2.textContent}`;
+                        sectionCount++;
+                    });
+                    
+                    // מיספור לכותרות h3
+                    let subsectionCount = 0;
+                    let currentSection = 0;
+                    document.querySelectorAll('h2.section, h3.subsection').forEach(el => {
+                        if (el.tagName === 'H2') {
+                            currentSection++;
+                            subsectionCount = 0;
+                        } else {
+                            subsectionCount++;
+                            el.textContent = `${chapterNum}.${currentSection}.${subsectionCount} ${el.textContent}`;
+                        }
+                    });
+                }
             });
     </script>
 </body>
