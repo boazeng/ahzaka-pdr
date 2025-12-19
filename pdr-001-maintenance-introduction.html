@@ -93,7 +93,7 @@
         <div class="sidebar" id="sidebar">
         </div>
         <div class="content">
-            <h1 id="page-title">מבוא</h1>
+            <h1>מבוא</h1>
             
             <h2 class="section">אודות החברה</h2>
             <p>
@@ -117,14 +117,12 @@
     </div>
     
     <script>
-        // טוען את הניווט
         fetch('nav.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('sidebar').innerHTML = html;
             });
         
-        // טוען את המיספור
         fetch('chapters.json')
             .then(response => response.json())
             .then(chapters => {
@@ -134,23 +132,21 @@
                 if (chapterInfo) {
                     const chapterNum = chapterInfo.chapter;
                     
-                    // מיספור לכותרות h2
                     let sectionCount = 1;
+                    let currentSectionNum = 1;
                     document.querySelectorAll('h2.section').forEach(h2 => {
+                        currentSectionNum = sectionCount;
                         h2.textContent = `${chapterNum}.${sectionCount} ${h2.textContent}`;
                         sectionCount++;
-                    });
-                    
-                    // מיספור לכותרות h3
-                    let subsectionCount = 0;
-                    let currentSection = 0;
-                    document.querySelectorAll('h2.section, h3.subsection').forEach(el => {
-                        if (el.tagName === 'H2') {
-                            currentSection++;
-                            subsectionCount = 0;
-                        } else {
-                            subsectionCount++;
-                            el.textContent = `${chapterNum}.${currentSection}.${subsectionCount} ${el.textContent}`;
+                        
+                        let subsectionCount = 1;
+                        let nextEl = h2.nextElementSibling;
+                        while (nextEl && nextEl.tagName !== 'H2') {
+                            if (nextEl.classList.contains('subsection')) {
+                                nextEl.textContent = `${chapterNum}.${currentSectionNum}.${subsectionCount} ${nextEl.textContent}`;
+                                subsectionCount++;
+                            }
+                            nextEl = nextEl.nextElementSibling;
                         }
                     });
                 }
