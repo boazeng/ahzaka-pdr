@@ -137,14 +137,12 @@
     </div>
     
     <script>
-        // טוען את הניווט
         fetch('nav.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('sidebar').innerHTML = html;
             });
         
-        // טוען את המיספור
         fetch('chapters.json')
             .then(response => response.json())
             .then(chapters => {
@@ -152,20 +150,20 @@
                 const chapterInfo = chapters[currentFile];
                 
                 if (chapterInfo) {
-                    const startNum = chapterInfo.chapter;
+                    const chapterNum = chapterInfo.chapter;
                     
-                    let sectionCount = startNum;
-                    let currentSectionNum = startNum;
+                    let sectionCount = 1;
+                    let currentSectionNum = 1;
                     document.querySelectorAll('h2.section').forEach(h2 => {
                         currentSectionNum = sectionCount;
-                        h2.textContent = `${sectionCount}. ${h2.textContent}`;
+                        h2.textContent = `${chapterNum}.${sectionCount} ${h2.textContent}`;
                         sectionCount++;
                         
                         let subsectionCount = 1;
                         let nextEl = h2.nextElementSibling;
                         while (nextEl && nextEl.tagName !== 'H2') {
                             if (nextEl.classList.contains('subsection')) {
-                                nextEl.textContent = `${currentSectionNum}.${subsectionCount} ${nextEl.textContent}`;
+                                nextEl.textContent = `${chapterNum}.${currentSectionNum}.${subsectionCount} ${nextEl.textContent}`;
                                 subsectionCount++;
                             }
                             nextEl = nextEl.nextElementSibling;
