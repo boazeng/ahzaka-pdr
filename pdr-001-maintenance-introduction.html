@@ -9,10 +9,49 @@
             font-family: Arial, sans-serif;
             background-color: white;
             color: black;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            margin: 0;
+            padding: 0;
             line-height: 1.8;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-left: 1px solid #ddd;
+            min-height: 100vh;
+        }
+        .sidebar h3 {
+            margin-top: 0;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin: 8px 0;
+        }
+        .sidebar li ul {
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        .sidebar a {
+            color: black;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #e0e0e0;
+        }
+        .content {
+            flex: 1;
+            padding: 40px;
         }
         h1 {
             border-bottom: 2px solid black;
@@ -28,48 +67,50 @@
         }
         p {
             text-align: justify;
+        }
+        .content ul {
             margin-right: 20px;
         }
-        ul {
-            margin-right: 40px;
-        }
-        li {
+        .content li {
             margin: 10px 0;
-        }
-        .back-link {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-        }
-        a {
-            color: black;
         }
     </style>
 </head>
 <body>
-    <h1>PDR-001: מבוא</h1>
-    
-    <h2>1. אודות החברה</h2>
-    <p>
-        חברת אחזקה אורבנית היא חברה המתמחה במתן שירותים להתקנה ואחזקה של מתקני חניה ומערכות ניהול חשמל למטענים.
-    </p>
-    
-    <h2>2. תחומי הפעילות</h2>
-    
-    <h3>2.1 מערכות חניה</h3>
-    <ul>
-        <li>התקנת מערכות חניה רובוטיות</li>
-        <li>אחזקת מכפילי חניה</li>
-    </ul>
-    
-    <h3>2.2 מערכות חשמל</h3>
-    <ul>
-        <li>מערכות ניהול חשמל לעמדות טעינה</li>
-        <li>תחזוקה שוטפת ומענה לתקלות</li>
-    </ul>
-    
-    <div class="back-link">
-        <a href="index.html">→ חזרה לתוכן העניינים</a>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <!-- הניווט יטען כאן אוטומטית -->
+        </div>
+        <div class="content">
+            <h1>PDR-001: מבוא</h1>
+            
+            <h2>1. אודות החברה</h2>
+            <p>
+                חברת אחזקה אורבנית היא חברה המתמחה במתן שירותים להתקנה ואחזקה של מתקני חניה ומערכות ניהול חשמל למטענים.
+            </p>
+            
+            <h2>2. תחומי הפעילות</h2>
+            
+            <h3>2.1 מערכות חניה</h3>
+            <ul>
+                <li>התקנת מערכות חניה רובוטיות</li>
+                <li>אחזקת מכפילי חניה</li>
+            </ul>
+            
+            <h3>2.2 מערכות חשמל</h3>
+            <ul>
+                <li>מערכות ניהול חשמל לעמדות טעינה</li>
+                <li>תחזוקה שוטפת ומענה לתקלות</li>
+            </ul>
+        </div>
     </div>
+    
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('sidebar').innerHTML = html;
+            });
+    </script>
 </body>
 </html>
