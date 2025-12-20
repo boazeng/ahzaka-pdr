@@ -67,14 +67,17 @@
         h1 {
             border-bottom: 2px solid black;
             padding-bottom: 10px;
+            margin-right: 0;
         }
         h2 {
             margin-top: 30px;
+            margin-right: 0;
             color: #333;
             font-size: 1.3em;
         }
         h3 {
             margin-top: 20px;
+            margin-right: 30px;
             color: #444;
             font-size: 1.1em;
         }
@@ -82,8 +85,17 @@
             text-align: justify;
             margin: 8px 0;
         }
+        h2 + p {
+            margin-right: 0;
+        }
+        h3 + p {
+            margin-right: 30px;
+        }
+        h3 + ul {
+            margin-right: 50px;
+        }
         .content ul {
-            margin-right: 20px;
+            list-style: disc;
         }
         .content li {
             margin: 6px 0;
